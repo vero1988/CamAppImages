@@ -1,0 +1,28 @@
+body {
+  font: normal 10px "mozTT", sans-serif;
+  background-image: url(../img/fondo-medblue.png);
+}
+
+.click {
+  	position: absolute;
+	left: 35%;
+	top: 45%;	
+}
+
+h1 {
+	position: relative;
+	font: normal 10px "mozTT", Georgia;
+	font-style: oblique;
+    font-weight: normal;
+    font-size: 3rem;
+    padding: 0.25rem 0 0.6rem;
+    text-align: center;
+    width: 100%;
+	background-color:transparent;
+}
+
+h1 span {
+    color:#FFF;
+	font-style:italic;
+	font-size: 3.5rem;
+}

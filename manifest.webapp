@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "name": "CamApp",
+  "description": "Se trata de una aplicación de prueba en al que se emplea la cámara, entre otros / ",
+  "launch_path": "/index.html",
+  "icons": {
+    "16": "/img/icons/logo16.png",
+    "48": "/img/icons/logo48.png",
+    "60": "/img/icons/logo60.png",
+    "128": "/img/icons/logo128.png"
+  },
+  "developer": {
+    "name": "Verónica Román",
+    "url": "https://github.com/vero1988/"
+  },
+  "installs_allowed_from": ["https://marketplace.firefox.com"]
+}
