@@ -1,6 +1,6 @@
 body {
   font: normal 10px "mozTT", sans-serif;
-  background-image: url(../img/fondo-medblue.png);
+  background-image: url(../img/fondo-rec.png);
 }
 
 .click {
@@ -14,15 +14,58 @@ h1 {
 	font: normal 10px "mozTT", Georgia;
 	font-style: oblique;
     font-weight: normal;
-    font-size: 3rem;
+    font-size: 3.5rem;
     padding: 0.25rem 0 0.6rem;
     text-align: center;
     width: 100%;
 	background-color:transparent;
+	color:#000;
 }
 
 h1 span {
     color:#FFF;
 	font-style:italic;
 	font-size: 3.5rem;
+}
+
+span.I {
+	color: #F00;
+	position: absolute; 
+    top:200px;
+	left:50px; 
+}
+
+span.m {
+	color:#F0F;
+	position: absolute; 
+    top:200px;
+	left:75px; 
+}
+
+span.a {
+	color:#00F;
+	position: absolute; 
+    top:200px;
+	left:130px; 
+}
+
+span.g {
+	color:#0F0;
+	position: absolute; 
+    top:200px;
+	left:170px; 
+}
+
+span.e {
+	color:#FF0;
+	position: absolute; 
+    top:200px;
+	left:210px; 
+}
+
+span.s {
+	color:#F60;
+	position: absolute; 
+    top:200px;
+	left:240px; 
 }
