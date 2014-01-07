@@ -9,6 +9,17 @@ body {
 	top: 45%;	
 }
 
+.tablepostfooter {
+  	margin: 0 auto;
+	border:none;
+	width: 100%;
+}
+
+.tablapostfooter td {
+	text-align: center; 
+	vertical-align: top;
+}
+
 h1 {
 	position: relative;
 	font: normal 10px "mozTT", Georgia;
@@ -19,11 +30,11 @@ h1 {
     text-align: center;
     width: 100%;
 	background-color:transparent;
-	color:#000;
+	color:#F30;
 }
 
 h1 span {
-    color:#FFF;
+    color:#000;
 	font-style:italic;
 	font-size: 3.5rem;
 }
@@ -31,41 +42,68 @@ h1 span {
 span.I {
 	color: #F00;
 	position: absolute; 
-    top:200px;
+    top:130px;
 	left:50px; 
 }
 
 span.m {
 	color:#F0F;
 	position: absolute; 
-    top:200px;
+    top:130px;
 	left:75px; 
 }
 
 span.a {
 	color:#00F;
 	position: absolute; 
-    top:200px;
+    top:130px;
 	left:130px; 
 }
 
 span.g {
 	color:#0F0;
 	position: absolute; 
-    top:200px;
+    top:130px;
 	left:170px; 
 }
 
 span.e {
 	color:#FF0;
 	position: absolute; 
-    top:200px;
+    top:130px;
 	left:210px; 
 }
 
 span.s {
 	color:#F60;
 	position: absolute; 
-    top:200px;
+    top:130px;
 	left:240px; 
 }
+
+#image-presenter {
+    display: none;
+    margin-bottom: 10px;
+}
+/*
+#btnDelete{ 
+float:left;    /*tambien puede poner float:right, para que se alineé a la derecha 
+padding:10px; 
+color:#fff; 
+width:300px; 
+margin:40px; 
+background:#039; 
+display:inline-block;
+} 
+
+#btnSave{ 
+float:right;       /*tambien puede poner float:right, para que se alineé a la derecha 
+padding:10px; 
+color:#fff; 
+width:300px; 
+margin:40px; 
+background:#039; 
+display:inline-block;
+} 
+
+*/
