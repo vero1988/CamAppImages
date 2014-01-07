@@ -23,7 +23,7 @@ window.onload = function() {
 
             pickImageActivity.onsuccess = function () {
                //Create the element via jQuery
-			   var imageElement = $('<img id="image1" height="350" width="290">'); // Antes a 400 y 300; Como puedo coger el tamaÃ±o de la imagen pero redimensionada con menos zoom.
+			   var imageElement = $('<img id="image1" height="350" width="290">'); // Antes a 400 y 300; Como puedo coger el tamaño de la imagen pero redimensionada con menos zoom.
 			   imageElement.attr('src', window.URL.createObjectURL(this.result.blob));
 			   $("#pickImage").html(imageElement);
 
@@ -151,3 +151,7 @@ $("#btnUsedSpace").click(function(){
 	  //console.warn("Unable to get the file: " + this.error);
 	//}
 	
+	
+	
+	
+								
