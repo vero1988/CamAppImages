@@ -3,24 +3,83 @@
 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-        <link rel="stylesheet" type="text/css" href="css/base.css">
-
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"/> 
         <title>CamApp Images</title>
+        <link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="jquery.mobile-1.3.1.min.css" />
+		
+		<script src="jquery-1.7.1.min.js"></script>
+		<script src="jquery.mobile-1.3.1.min.js"></script>             
     </head>
     
     <body>
-    
-        <h1><span>Cam</span>App</h1>
-        <h1><span class="I">I</span><span class="m">m</span><span class="a">a</span><span class="g">g</span><span class="e">e</span><span class="s">s</span></h1>
-        <div id="contenedor_icon">																	
-            <a class="click" href="#"> 											
-                <img id="pick-image" style="background-color:transparent" src="img/camera-logo.png" height="100" width="100" /> 
-            </a>
-        </div>
-        
-        <script type="text/javascript" src="js/app.js"></script>
-        
+		<!-- Start of first page: #home -->
+		<div data-role="page" id="home"> <!--data-role -> Custom data Attributes-->
+		
+			<header data-role="header" data-position="fixed" id="header">
+				<h2>Pulsa el icono</h2>
+			</header><!-- /header -->
+            
+			<h1><span>Cam</span>App</h1>
+
+			<h1><span class="I">I</span><span class="m">m</span><span class="a">a</span><span class="g">g</span><span class="e">e</span><span class="s">s</span></h1>
+			<div data-role="content">																	
+					<a class="click" href="#"> 	
+						<img id="pick-image" style="background-color:transparent" src="images/camera-logo.png" height="100" width="100" /> 
+							
+					</a>  
+			</div><!-- /content -->
+            
+            <footer data-role="footer" data-position="fixed" id="footer">
+			
+			<table class="tablepostfooter" cellspacing="0" cellpadding="0">
+			  <tr>
+				<td>
+				  <center><a href="#" id="btnFreeSpace" data-role="button" data-inline="true" data-theme="e" data-content-theme="e">Espacio Disponible</a></center>
+				</td>
+				
+				<td>
+				  <center><a href="#" id="btnUsedSpace" data-role="button" data-inline="true" data-theme="a" data-content-theme="a">Espacio Ocupado</a></center>
+				</td>
+				
+			  </tr>
+			</table>
+			
+            </footer><!-- /page footer --> 
+		</div><!-- /page home -->   
+
+		<!-- Second page to show image -->
+		<div data-role="page" id="showImage" data-add-back-btn="true" data-back-btn-text="Atras">
+
+		  <header data-role="header" data-position="fixed" id="header" data-icon="back">
+			<h1>Foto Captada</h1>
+		  </header> <!-- /header -->
+
+		  <div id="pickImage" data-role="content">
+		
+		  </div>
+            
+            <footer data-role="footer" data-position="fixed" id="footer">
+			
+			<table class="tablepostfooter" cellspacing="0" cellpadding="0">
+			  <tr>
+				<td>
+				  <center><a href="#" id="btnDelete" data-role="button" data-inline="true" data-icon="delete" data-theme="a">Eliminar</a></center>
+				</td>
+				
+				<td>
+				  <center><a href="#" id="btnSave" class="ui-icon-check" data-role="button" data-inline="true" data-icon="check" data-theme="b">Guardar</a></center>
+				</td>
+				
+			  </tr>
+			</table>
+  
+            </footer><!-- /page footer --> 
+            
+		</div> <!-- second page -->
+				
+		<script type="text/javascript" src="js/app.js"></script>
     </body>
 
 </html>
+
