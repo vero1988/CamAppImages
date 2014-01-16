@@ -32,7 +32,7 @@ window.onload = function() {
             };
 
             pickImageActivity.onerror = function () {
-                alert("Can't view the image!");
+                alert("No se puede mostrar la imagen");
 				console.log(this.result);
             };
         }
@@ -40,28 +40,9 @@ window.onload = function() {
 	
 }();
 	
-$("#btnDelete").click(function(){
-	//alert("La imagen se ha eliminado con exito");
-	//parent.history.back(); // Va a la anterior pagina
-	
-	
-	var pict = navigator.getDeviceStorage('pictures');
-	var request = pict.delete(this.result);
-	//var request = pict.delete("my-file.txt");
-	
-	request.onsuccess = function () {
-		alert("Imagen eliminada");
-		console.log("Imagen eliminada log");
-	}
-	
-	request.onerror = function () {
-		alert("No se puede borrar el fichero: " + this.error);
-		console.log("No se puede borrar el fichero log: " + this.error);
-	}
-	
-});
 
 $("#btnSave").click(function(){
+	alert("Se ha pulsado el boton de guardar");
 	//alert("La imagen se ha almacenado en la galeria con exito");
 	//parent.history.back(); // Va a la anterior pagina
 	
@@ -100,7 +81,34 @@ $("#btnSave").click(function(){
 $("#btnMenu").click(function(){
 	alert("Se ha pulsado el menu");
 });
+
+
+$("#btnCancel").click(function(){
+	//alert("La imagen se ha almacenado en la galeria con exito");
+	parent.history.back(); // Va a la anterior pagina
+});	
 	
+	
+$("#btnDel").click(function(){
+	alert("Se ha presionado el boton eliminar");
+	//alert("La imagen se ha eliminado con exito");
+	//parent.history.back(); // Va a la anterior pagina
+	
+	var pict = navigator.getDeviceStorage('pictures');
+	var request = pict.delete(this.result);
+	//var request = pict.delete("my-file.txt");
+	
+	request.onsuccess = function () {
+		alert("Imagen eliminada");
+		console.log("Imagen eliminada log");
+	}
+	
+	request.onerror = function () {
+		alert("No se puede borrar el fichero: " + this.error);
+		console.log("No se puede borrar el fichero log: " + this.error);
+	}
+});
+
 
 $("#btnFreeSpace").click(function(){
 	var pict = navigator.getDeviceStorage('pictures'); // "pictures"
@@ -135,8 +143,21 @@ $("#btnUsedSpace").click(function(){
 		console.warn("No se puede obtener el espacio que utilizan las imagenes " + this.error);
 		alert("No se puede obtener el espacio que utilizan las imagenes " + this.error);
 	}
+});	
+
+$( "#popupPanel" ).on({
+    popupbeforeposition: function() {
+        var h = $( window ).height();
+
+        $( "#popupPanel" ).css( "height", h );
+    }
 });
-	
+
+$("#btnBack").click(function(){
+	//alert("Se presiona el boton atrás");
+	parent.history.back(); // Va a la anterior pagina
+});
+
 	//GET FILE//
 	
 	//var sdcard = navigator.getDeviceStorage('sdcard');
@@ -152,6 +173,26 @@ $("#btnUsedSpace").click(function(){
 	//}
 	
 	
+/*$("#btnDelete").click(function(){
+	//alert("La imagen se ha eliminado con exito");
+	//parent.history.back(); // Va a la anterior pagina
 	
+	
+	var pict = navigator.getDeviceStorage('pictures');
+	var request = pict.delete(this.result);
+	//var request = pict.delete("my-file.txt");
+	
+	request.onsuccess = function () {
+		alert("Imagen eliminada");
+		console.log("Imagen eliminada log");
+	}
+	
+	request.onerror = function () {
+		alert("No se puede borrar el fichero: " + this.error);
+		console.log("No se puede borrar el fichero log: " + this.error);
+	}
+	
+});
+**/
 	
 								
