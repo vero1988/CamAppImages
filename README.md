@@ -13,11 +13,3 @@ En segundo lugar, dado que no existe otra manera de poder invocar a ésta si no 
 
 Y, por último, estoy intentando hacer algo con las fotos, para enseñárselas al usuario y que éste pueda emplear una serie de efectos y, dado que únicamente llamo a la Web Activity, no sé como indicar que cambie de "pantalla" digámoslo así.
 
-
-Agradecimientos
-===============
-
-También merece mención aparte la ayuda que Soledad me está proporcionando, ya que desde el primer día que la pregunté ha estado ahí siempre ayudándome en todo lo que puede la pobre.
-
-Así que ¡MIL GRACIAS SOLE!
-
