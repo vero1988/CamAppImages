@@ -68,6 +68,7 @@
 			  <tr>
 				<td>
 				  <center><a href="confirm.html" id="btnDelete" data-role="button" data-inline="true" data-icon="delete" data-theme="a">Eliminar</a></center>
+      
 				</td>
                 
                 <td>
@@ -77,60 +78,35 @@
                     
                     <h2 class="bb-docs">Escala de grises</h2>
                     <section role="region">
-                      <div role="slider" aria-valuemin="0" aria-valuenow="80" aria-valuemax="100" aria-valuetext="slider description">
-                        <label class="icon">0</label>
-                        <label class="icon">100</label>
-                        <div>
-                          <progress value="80" max="100"></progress>
-                          
-                        </div>
-                      </div>
+                      <input type="range" name="slider-1" id="slider-1" data-role="fieldcontain" onchange="set('grayscale', this.valueAsNumber);" value="0" step="0.1" min="0" max="1" data-highlight="true" data-mini="true" />
+                      
+                     <div></div>
                     </section>
                     
                     <h2 class="bb-docs">Color sepia</h2>
                     <section role="region">
-                      <div role="slider" aria-valuemin="0" aria-valuenow="80" aria-valuemax="100" aria-valuetext="slider description">
-                        <label class="icon">0</label>
-                        <label class="icon">100</label>
-                        <div>
-                          <progress value="80" max="100"></progress>
-                        </div>
-                      </div>
+                      <input type="range" name="slider-2" id="slider-2" onchange="set('sepia', this.valueAsNumber);" value="0" step="0.1" min="0" max="1" data-highlight="true" data-mini="true" />
                     </section>
                     
                     <h2 class="bb-docs">Brillo</h2>
                     <section role="region">
-                      <div role="slider" aria-valuemin="0" aria-valuenow="80" aria-valuemax="100" aria-valuetext="slider description">
-                        <label class="icon">0</label>
-                        <label class="icon">100</label>
-                        <div>
-                          <progress value="80" max="100"></progress>
-                        </div>
-                      </div>
+					  <input type="range" name="slider-3" id="slider-3" onchange="set('brightness', this.valueAsNumber);" value="0" step="0.1" min="0" max="10" data-highlight="true" data-mini="true" />
                     </section>
                     
                     <h2 class="bb-docs">Contraste</h2>
                     <section role="region">
-                      <div role="slider" aria-valuemin="0" aria-valuenow="80" aria-valuemax="100" aria-valuetext="slider description">
-                        <label class="icon">0</label>
-                        <label class="icon">100</label>
-                        <div>
-                          <progress value="80" max="100"></progress>
-                        </div>
-                      </div>
+                      <input type="range" name="slider-4" id="slider-4" onchange="set('contrast', this.valueAsNumber);" value="0" step="0.1" min="0" max="10" data-highlight="true" data-mini="true" />
                     </section>
                     
                     <h2 class="bb-docs">Desenfoque</h2>
                     <section role="region">
-                      <div role="slider" aria-valuemin="0" aria-valuenow="80" aria-valuemax="100" aria-valuetext="slider description">
-                        <label class="icon">0</label>
-                        <label class="icon">100</label>
-                        <div>
-                          <progress value="80" max="100"></progress>
-                        </div>
-                      </div>
+                      <input type="range" name="slider-5" id="slider-5" onchange="set('blur', this.value + 'px');" value="0" step="1" min="0" max="10" data-highlight="true" data-mini="true" />
                     </section>
                     
+                    <h2 class="bb-docs">Saturacion</h2>
+                    <section role="region">
+                      <input type="range" name="slider-6" id="slider-6" onchange="set('saturate', this.valueAsNumber);" value="0" step="0.1" min="0" max="10" data-highlight="true" data-mini="true" />
+                    </section>
                     
                     <!--<a href="#" id="btnBack" data-role="button" data-mini="true" data-transition="slide" data-inline="true" data-icon="back" data-theme="c">Atras</a>-->
 		 
