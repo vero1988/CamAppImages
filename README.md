@@ -7,9 +7,13 @@ Esta app se crea con la finalidad de que el usuario pueda realizar algunos reaju
 
 Actualmente existen algunos problemas con ésta, SE ACEPTAN CONSEJOS --> Es mi primera App ;-). 
 
-En primer lugar, la cámara no responde en el simulador de Firefox OS. Se queda bloqueada cuando se la invoca. Leyendo por ahí creo que no es un problema mío, pero no sé si existe alguna solución a ésto o no.
+En primer lugar, la cámara no responde en el simulador de Firefox OS. Se queda bloqueada cuando se la invoca. Leyendo por ahí creo que no es un problema mío, pero no sé si existe alguna solución a ésto o no. CORROBORADO, no es problema mío pues en el dispositivo funciona perfectamente. :-)
 
 En segundo lugar, dado que no existe otra manera de poder invocar a ésta si no es mediante Web Activities, sólo se acepta en Firefox OS.
 
-Y, por último, estoy intentando hacer algo con las fotos, para enseñárselas al usuario y que éste pueda emplear una serie de efectos y, dado que únicamente llamo a la Web Activity, no sé como indicar que cambie de "pantalla" digámoslo así.
+Y, por último, actualmente muestro la imagen recortada (si el usuario desea recortarla) y la puedo almacenar y eliminar sin problemas. 
+
+FALTA POR HACER:
+
+- Que los efectos que el usuario realice (escala de grises, sepia, contraste,...) se puedan almacenar en la misma imagen, para esto CSS no me vale pues me pierden el efecto cuando las almaceno como es lógico, pero no encuentro otro modo de hacerlo...¿ALGUNA IDEA?
 
