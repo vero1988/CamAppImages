@@ -1,0 +1,4 @@
+
+1 - Tratar las imágenes, llamarlas y poder hacer algo más con ellas.(Mínimo que se muestren en alguna pantalla).
+
+2 - Intentar grabar vídeo para jugar con el audio también. (PLUS)

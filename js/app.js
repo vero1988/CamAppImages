@@ -1,19 +1,18 @@
+var editedImage;
+
 window.onload = function() {
-    
+	
     if( !window.MozActivity ) {
-        //alert('This environment does not support Web Activities.\nSorry about that :-(\nMaybe try it on Firefox OS?');
 		alert('Este entorno no admite Actividades Web, por favor emplea Firefox OS. \n\nPerdona las molestias causadas.');
 		
         return;
     }
-
+	
 	var pickImage = document.querySelector("#pick-image");
 	
     if (pickImage) {
         pickImage.onclick = function () {
-		
-		//$("#pick-image").click(function(){
-		
+			
             var pickImageActivity = new MozActivity({
                 name: "pick",
                 data: {
@@ -22,61 +21,78 @@ window.onload = function() {
             });
 
             pickImageActivity.onsuccess = function () {
-               //Create the element via jQuery
-			   var imageElement = $('<img id="image1" height="350" width="290">'); // Antes a 400 y 300; Como puedo coger el tamaño de la imagen pero redimensionada con menos zoom.
-			   imageElement.attr('src', window.URL.createObjectURL(this.result.blob));
-			   $("#pickImage").html(imageElement);
 
-			   //Switch to the #pageid = showImage
-			   $.mobile.changePage ($("#showImage"));
-            };
+				var file = this.result.blob; // this.result.blob; --> Me indica que es un tipo File o Blob
+
+				editedImage = file;
+				
+				if (file != null) {
+					//Crea el elemento via jQuery
+					var imageElement = $('<img id="image1" height="350" width="290">'); // Antes a 400 y 300; Como puedo coger el tamaño de la imagen pero redimensionada con menos zoom.
+					imageElement.attr('src', window.URL.createObjectURL(file));
+					$("#pickImage").html(imageElement);
+
+					//Cambia de pagina a partir del id
+					$.mobile.changePage ($("#showImage"));
+
+				}else{
+					alert("La imagen no existe");
+				}
+            }
 
             pickImageActivity.onerror = function () {
-                alert("No se puede mostrar la imagen");
-				console.log(this.result);
-            };
+                //alert("No se ha seleccionado ninguna imagen");
+				console.log("No se ha seleccionado ninguna imagen: " + this.result); // this.result --> Me indica que es un tipo Object
+            }
         }
     }
 	
-}();
+};
 	
-
 $("#btnSave").click(function(){
-	alert("Se ha pulsado el boton de guardar");
-	//alert("La imagen se ha almacenado en la galeria con exito");
-	//parent.history.back(); // Va a la anterior pagina
+	// alert(editedImage); // Me indica que la imagen es de tipo Blob o File
+	var pict = navigator.getDeviceStorage("pictures");
 	
-
-	var pict = navigator.getDeviceStorage('pictures');
-	var file = this.result.blob; // Tambien probado con this.result; y nada.
-	//var file   = new Blob(["Este es un archivo de texto."], {type: "text/plain"});
-	var request = pict.add(file);
-	//var request = pict.addNamed(file, "mi-archivo.txt");
-	
-	if (file != null) {
-		request.onsuccess = function () {
-		var name = this.result.name;
-		console.log("El archivo " + name + " se escribio correctamente en el area de almacenamiento");
-		alert("El archivo " + name + " se escribio correctamente en el area de almacenamiento");
-		this.done = false;
-		}
+	var mydate=new Date(); 
+	var year=mydate.getYear(); 
+	if (year < 1000) 
+		year+=1900; 
+	var day=mydate.getDay(); 
+	var month=mydate.getMonth()+1; 
+	if (month<10) 
+		month="0"+month; 
+	var daym=mydate.getDate(); 
+	if (daym<10) 
+		daym="0"+daym; 
 		
-		// Un error suele producirse si un archivo con el mismo nombre ya existe
-		request.onerror = function () {
-			console.warn('No se puede escribir el archivo: ' + this.error);
-			alert("No se puede escribir el archivo: " + this.error);
-		}
-	}
-	else {
-		this.done = true;
-	}
+	var Digital=new Date(); 
+	var hours=Digital.getHours(); 
+	var minutes=Digital.getMinutes(); 
+	var seconds=Digital.getSeconds(); 
+	if (hours<=9) 
+		hours="0"+hours;
+	if (minutes<=9) 
+		minutes="0"+minutes; 
+	if (seconds<=9) 
+		seconds="0"+seconds; 
 
-	if (!this.done) {
-		this.continue();
-	}
+	var namefile ="img" + daym + month + year + hours + minutes + seconds + ".jpeg"; 	
 	
-});	
+	var request = pict.addNamed(editedImage, namefile); // editImage --> es el fichero que espera, la imagen
 
+	request.onsuccess = function () {
+		var name = this.result;
+		console.log("La imagen " + name + " se ha guardado correctamente");
+		alert("La imagen se ha guardado correctamente");
+	}
+
+	// Error que suele producirse es cuando existe un archivo con el mismo nombre, por ello se ha implementado que se almacene con el DD/MM/AA y la HH-MM-SS
+	request.onerror = function () {
+		alert("No se puede guardar la imagen");
+		console.warn("No se puede guardar la imagen: " + this.error);
+	}
+	$.mobile.changePage ($("#home"));
+});
 
 $("#btnMenu").click(function(){
 	alert("Se ha pulsado el menu");
@@ -84,34 +100,28 @@ $("#btnMenu").click(function(){
 
 
 $("#btnCancel").click(function(){
-	//alert("La imagen se ha almacenado en la galeria con exito");
 	parent.history.back(); // Va a la anterior pagina
-});	
-	
+});		
 	
 $("#btnDel").click(function(){
-	alert("Se ha presionado el boton eliminar");
-	//alert("La imagen se ha eliminado con exito");
-	//parent.history.back(); // Va a la anterior pagina
-	
 	var pict = navigator.getDeviceStorage('pictures');
-	var request = pict.delete(this.result);
-	//var request = pict.delete("my-file.txt");
+	var request = pict.delete(editedImage.name);
 	
 	request.onsuccess = function () {
-		alert("Imagen eliminada");
-		console.log("Imagen eliminada log");
+		console.log("Se ha eliminado la imagen " + editedImage.name + " correctamente");
+		alert("Se ha eliminado la imagen correctamente");
 	}
 	
 	request.onerror = function () {
-		alert("No se puede borrar el fichero: " + this.error);
-		console.log("No se puede borrar el fichero log: " + this.error);
+		alert("No se puede borrar la imagen porque no esta guardada");
+		console.log("No se puede borrar la imagen porque no esta guardada: " + this.error);
+		$.mobile.changePage ($("#showImage"));
 	}
+	$.mobile.changePage ($("#home"));
 });
 
-
 $("#btnFreeSpace").click(function(){
-	var pict = navigator.getDeviceStorage('pictures'); // "pictures"
+	var pict = navigator.getDeviceStorage('pictures');
 	var request = pict.freeSpace();
 
 	request.onsuccess = function () {
@@ -145,18 +155,84 @@ $("#btnUsedSpace").click(function(){
 	}
 });	
 
-$( "#popupPanel" ).on({
+$("#popupPanel").on({
     popupbeforeposition: function() {
-        var h = $( window ).height();
+        var h = $(window).height();
 
-        $( "#popupPanel" ).css( "height", h );
+        $("#popupPanel").css("height", h);
     }
 });
 
 $("#btnBack").click(function(){
-	//alert("Se presiona el boton atrás");
 	parent.history.back(); // Va a la anterior pagina
 });
+
+function setEffect(effect, value){
+	$('#pickImage').css(effect, value);
+		
+	var classToApply = "";
+	
+	switch(effect){
+		case 'grayscale':
+			switch(value){
+				case '0':
+					$("#pickImage").removeClass("grayscale_low");				
+					break;
+				case '25':
+					classToApply = "grayscale_low";
+					$("#pickImage").removeClass("grayscale_medium");
+					break;
+				case '50':
+					classToApply = "grayscale_medium";
+					$("#pickImage").removeClass("grayscale_low");
+					$("#pickImage").removeClass("grayscale_medium_high");
+					break;
+				case '75':
+					classToApply = "grayscale_medium_high";
+					$("#pickImage").removeClass("grayscale_medium");
+					$("#pickImage").removeClass("grayscale_high");
+					break;
+				case '100':
+					classToApply = "grayscale_high";
+					$("#pickImage").removeClass("grayscale_medium_high");
+					break;
+			}			
+			break;
+				
+				
+				
+		case 'borderRadius':
+			switch(value){
+				case '0':
+					$("#pickImage").removeClass("borderRadius_low");
+					break;
+				case '1':
+					classToApply = "borderRadius_low";
+					$("#pickImage").removeClass("borderRadius_medium");
+					break;
+				case '2':
+					classToApply = "borderRadius_medium";
+					$("#pickImage").removeClass("borderRadius_low");
+					$("#pickImage").removeClass("borderRadius_medium_high");
+					break;
+				case '3':
+					classToApply = "borderRadius_medium_high";
+					$("#pickImage").removeClass("borderRadius_medium");
+					$("#pickImage").removeClass("borderRadius_high");
+					break;
+				case '4':
+					classToApply = "borderRadius_high";
+					$("#pickImage").removeClass("borderRadius_medium_high");
+					break;
+			}			
+			break;
+	}
+	
+	
+	console.log("Input effect: " + effect + "(" + value + ") -> classToApply: " + classToApply);
+	$("#pickImage").addClass(classToApply);
+}
+
 
 	//GET FILE//
 	
@@ -172,27 +248,5 @@ $("#btnBack").click(function(){
 	  //console.warn("Unable to get the file: " + this.error);
 	//}
 	
-	
-/*$("#btnDelete").click(function(){
-	//alert("La imagen se ha eliminado con exito");
-	//parent.history.back(); // Va a la anterior pagina
-	
-	
-	var pict = navigator.getDeviceStorage('pictures');
-	var request = pict.delete(this.result);
-	//var request = pict.delete("my-file.txt");
-	
-	request.onsuccess = function () {
-		alert("Imagen eliminada");
-		console.log("Imagen eliminada log");
-	}
-	
-	request.onerror = function () {
-		alert("No se puede borrar el fichero: " + this.error);
-		console.log("No se puede borrar el fichero log: " + this.error);
-	}
-	
-});
-**/
 	
 								

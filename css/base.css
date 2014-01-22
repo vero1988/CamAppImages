@@ -86,10 +86,6 @@ span.s {
     margin-bottom: 10px;
 }
 
-#pickImage {
-	-webkit-filter: brightness(2.6);
-}
-
 #popupPanel-popup {
     right: 0 !important;
     left: auto !important;
