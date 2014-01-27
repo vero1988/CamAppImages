@@ -1,6 +1,7 @@
 var editedImage;
 
 window.onload = function() {
+	lockedAllowed = window.screen.mozLockOrientation('portrait');
 	
     if( !window.MozActivity ) {
 		alert('Este entorno no admite Actividades Web, por favor emplea Firefox OS. \n\nPerdona las molestias causadas.');
@@ -198,37 +199,113 @@ function setEffect(effect, value){
 					break;
 			}			
 			break;
+	
+		case 'sepia':
+				switch(value){
+					case '0':
+						$("#pickImage").removeClass("sepia_low");
+						break;
+					case '1':
+						classToApply = "sepia_low";
+						$("#pickImage").removeClass("sepia_medium");
+						break;
+					case '2':
+						classToApply = "sepia_medium";
+						$("#pickImage").removeClass("sepia_low");
+						$("#pickImage").removeClass("sepia_medium_high");
+						break;
+					case '3':
+						classToApply = "sepia_medium_high";
+						$("#pickImage").removeClass("sepia_medium");
+						$("#pickImage").removeClass("sepia_high");
+						break;
+					case '4':
+						classToApply = "sepia_high";
+						$("#pickImage").removeClass("sepia_medium_high");
+						break;
+				}			
+				break;
 				
-				
-				
-		case 'borderRadius':
+		case 'brightness':
+				switch(value){
+					case '0':
+						$("#pickImage").removeClass("brightness_low");
+						break;
+					case '1':
+						classToApply = "brightness_low";
+						$("#pickImage").removeClass("brightness_medium");
+						break;
+					case '2':
+						classToApply = "brightness_medium";
+						$("#pickImage").removeClass("brightness_low");
+						$("#pickImage").removeClass("brightness_medium_high");
+						break;
+					case '3':
+						classToApply = "brightness_medium_high";
+						$("#pickImage").removeClass("brightness_medium");
+						$("#pickImage").removeClass("brightness_high");
+						break;
+					case '4':
+						classToApply = "brightness_high";
+						$("#pickImage").removeClass("brightness_medium_high");
+						break;
+				}			
+				break;	
+
+		case 'saturate':
+				switch(value){
+					case '0':
+						$("#pickImage").removeClass("saturate_low");
+						break;
+					case '1':
+						classToApply = "saturate_low";
+						$("#pickImage").removeClass("saturate_medium");
+						break;
+					case '2':
+						classToApply = "saturate_medium";
+						$("#pickImage").removeClass("saturate_low");
+						$("#pickImage").removeClass("saturate_medium_high");
+						break;
+					case '3':
+						classToApply = "saturate_medium_high";
+						$("#pickImage").removeClass("saturate_medium");
+						$("#pickImage").removeClass("saturate_high");
+						break;
+					case '4':
+						classToApply = "saturate_high";
+						$("#pickImage").removeClass("saturate_medium_high");
+						break;
+				}			
+				break;	
+
+		case 'hueRotate':
 			switch(value){
 				case '0':
-					$("#pickImage").removeClass("borderRadius_low");
+					$("#pickImage").removeClass("hueRotate_low");
 					break;
 				case '1':
-					classToApply = "borderRadius_low";
-					$("#pickImage").removeClass("borderRadius_medium");
+					classToApply = "hueRotate_low";
+					$("#pickImage").removeClass("hueRotate_medium");
 					break;
 				case '2':
-					classToApply = "borderRadius_medium";
-					$("#pickImage").removeClass("borderRadius_low");
-					$("#pickImage").removeClass("borderRadius_medium_high");
+					classToApply = "hueRotate_medium";
+					$("#pickImage").removeClass("hueRotate_low");
+					$("#pickImage").removeClass("hueRotate_medium_high");
 					break;
 				case '3':
-					classToApply = "borderRadius_medium_high";
-					$("#pickImage").removeClass("borderRadius_medium");
-					$("#pickImage").removeClass("borderRadius_high");
+					classToApply = "hueRotate_medium_high";
+					$("#pickImage").removeClass("hueRotate_medium");
+					$("#pickImage").removeClass("hueRotate_high");
 					break;
 				case '4':
-					classToApply = "borderRadius_high";
-					$("#pickImage").removeClass("borderRadius_medium_high");
+					classToApply = "hueRotate_high";
+					$("#pickImage").removeClass("hueRotate_medium_high");
 					break;
 			}			
 			break;
-	}
-	
-	
+
+	}			
+
 	console.log("Input effect: " + effect + "(" + value + ") -> classToApply: " + classToApply);
 	$("#pickImage").addClass(classToApply);
 }

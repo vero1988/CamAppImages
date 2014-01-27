@@ -36,7 +36,7 @@
             <footer data-role="footer" data-position="fixed" id="footer">
 			
 			<table class="tablepostfooter" cellspacing="0" cellpadding="0">
-			  <tr>
+			  <tr> 
 				<td>
 				  <center><a href="#" id="btnFreeSpace" data-role="button" data-inline="true" data-theme="e" data-content-theme="e">Espacio Disponible</a></center>
 				</td>
@@ -78,27 +78,27 @@
                     <h2 class="bb-docs">Escala de grises</h2>
                     <section role="region">
                       <!--<input class="grayscale" type="range" name="slider-1" id="slider-1" value="0" step="25" min="0" max="100" data-highlight="true" data-mini="true" />-->
-					  <input type="range" name="slider-1" value="0" step="25" min="0" max="100" onchange="setEffect('grayscale', this.value)" data-highlight="true" data-mini="true"/>
+					  <input type="range" name="slider-1" value="0" step="25" min="0" max="100" onChange="setEffect('grayscale', this.value)" data-highlight="true" data-mini="true"/>
 					</section>
                     
                     <h2 class="bb-docs">Color sepia</h2>
-                    
-                      <input class="sepia" type="range" name="slider-2" id="slider-2" value="0" step="25" min="0" max="100" data-highlight="true" data-mini="true" />
+                      <input class="sepia" type="range" name="slider-2" id="slider-2" value="0" step="1" min="0" max="4" onchange="setEffect('sepia', this.value)" data-highlight="true" data-mini="true" />
                     
                     
                     <h2 class="bb-docs">Brillo</h2>
                     <section role="region">
-					  <input class="brightness" type="range" name="slider-3" id="slider-3" value="0" step="25" min="0" max="100" data-highlight="true" data-mini="true" />
+					  <input class="brightness" type="range" name="slider-3" id="slider-3" value="0" step="1" min="0" max="4" onchange="setEffect('brightness', this.value)" data-highlight="true" data-mini="true" />
                     </section>
                     
-                    <h2 class="bb-docs">Contraste</h2>
+                    <h2 class="bb-docs">Saturación</h2>
                     <section role="region">
-                      <input class="contrast" type="range" name="slider-4" id="slider-4" value="0" step="25" min="0" max="100" data-highlight="true" data-mini="true" />
+                      <input class="saturate" type="range" name="slider-4" id="slider-4" value="0" step="1" min="0" max="4" onchange="setEffect('saturate', this.value)" data-highlight="true" data-mini="true" />
                     </section>
                     
-                    <h2 class="bb-docs">Desenfoque</h2>
+                    <h2 class="bb-docs">Rotar matices</h2>
                     <section role="region">
-                      <input class="blur" type="range" name="slider-5" id="slider-5" value="0" step="25" min="0" max="100" data-highlight="true" data-mini="true" />
+                      <input class="huerotate" type="range" name="slider-2" value="0" step="1" min="0" max="4" onchange="setEffect('hueRotate', this.value)" data-highlight="true" data-mini="true" />
+					  <!--<input class="blur" type="range" name="slider-5" id="slider-5" value="0" step="25" min="0" max="100" data-highlight="true" data-mini="true" />-->
                     </section>
                     
                     <h2 class="bb-docs">Opacidad</h2>
